@@ -1,0 +1,121 @@
+@import "reset.css";
+@import "_mixin.scss";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin-top: 40px;
+}
+
+.header {
+  width: 100%;
+  background-color: white;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  z-index: 1;
+  top:0;
+  left: 0;
+  padding: 0px 10px;
+  h1 {
+    font-size: 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  nav {
+    ul {
+      display: flex;
+      li {
+        font-size: 22px;
+        display: flex;
+        align-items: center;
+        @include nth-color(1, #DFCDAA);
+        @include nth-color(2, #B96F47);
+        @include nth-color(3, #CCA7ED);
+        @include nth-color(4, #FC7B41);
+        @include nth-color(5, #6C95CF);
+        @include nth-color(6, #D4A335);
+        span {
+          height: 15px;
+          width: 15px;
+          background-color: #B4D5A3;
+          border-radius: 50%;
+          margin-right: 5px;
+        }
+        a {
+          color: inherit;
+          text-decoration: none;
+          text-transform: uppercase;
+        }
+        &:not(:last-child) {
+          margin-right: 20px;
+        }
+      }
+    }
+  }
+}
+
+.posts {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: 55vh;
+  .post {
+    cursor: pointer;
+    padding: 20px;
+    font-size: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    @include nth-background(1, #FF6F2F);
+    @include nth-background(2, #CCA7ED);
+    @include nth-background(3, #DFCDAA);
+    @include nth-background(4, #B96F47);
+    @include nth-background(5, #6C95CF);
+    @include nth-background(6, #B4D5A3);
+    .post__header, footer {
+      display: flex;
+      justify-content: space-between;
+      letter-spacing: 1px;
+    }
+    .post__content {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      h3 {
+        letter-spacing: 2px;
+        line-height: 1.3;
+        font-size: 26px;
+        text-align: center;
+      }
+      .invisible {
+        display: none;
+        width: 100%;
+        height: 100%;
+        background-image: url('https://source.unsplash.com/random/');
+        background-size: cover;
+        background-position: center center;
+      }
+    }
+    &:hover {
+      .post__content {
+        .visible {
+          display: none;
+        }
+        .invisible {
+          display: block;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+@mixin nth-color($num, $color) {
+  &:nth-child(#{$num}) {
+    span {
+      background-color: $color;
+    }
+  }
+}
+
+@mixin nth-background($num, $color) {
+  &:nth-child(#{$num}) {
+    background-color: $color;
+  }
+}
